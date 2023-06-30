@@ -1,12 +1,12 @@
 ﻿namespace Logic
 {
-    internal class User
+    public class User
     {
         private string m_Name;
         private bool m_IsComputer;
         private int m_Score;
 
-        internal string Name
+        public string Name
         {
             get
             {
@@ -30,7 +30,7 @@
             }
         }
 
-        internal int Score
+        public int Score
         {
             get
             {

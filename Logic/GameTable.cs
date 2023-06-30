@@ -104,7 +104,7 @@ namespace Logic
             return i_Row + i_Col == m_SizeOfTable - 1;
         }
 
-        internal void RestartInformationInTable()
+        public void RestartInformationInTable()
         {
             m_Table = new eSigns[m_SizeOfTable, m_SizeOfTable];
             m_Capacity = 0;

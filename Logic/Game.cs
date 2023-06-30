@@ -12,6 +12,8 @@ namespace Logic
 
         public GameTable Table { get { return m_Table; } }
 
+        public User[] Users { get { return m_Users; } }
+
         public Game() 
         {
             m_Users = new User[v_NumOfUsers];
