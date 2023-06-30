@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
+using Logic;
 
-namespace XMixDrixUpsideDown
+namespace UI
 {
     public class Program
     {

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Logic;
 
-namespace XMixDrixUpsideDown
+namespace UI
 {
     public partial class GameSettingsForm : Form
     {

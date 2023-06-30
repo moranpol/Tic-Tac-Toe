@@ -1,12 +1,12 @@
-﻿namespace XMixDrixUpsideDown
+﻿namespace Logic
 {
-    public class User
+    internal class User
     {
         private string m_Name;
         private bool m_IsComputer;
         private int m_Score;
 
-        public string Name
+        internal string Name
         {
             get
             {
@@ -18,7 +18,7 @@
             }
         }
 
-        public bool IsComputer
+        internal bool IsComputer
         {
             get
             {
@@ -29,8 +29,8 @@
                 m_IsComputer = value;
             }
         }
-        
-        public int Score
+
+        internal int Score
         {
             get
             {
@@ -38,7 +38,7 @@
             }
         }
 
-        public void UpdateScore()
+        internal void UpdateScore()
         {
             m_Score++;
         }

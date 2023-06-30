@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
 
-namespace XMixDrixUpsideDown
+namespace Logic
 {
     public struct UI
     {
@@ -66,7 +66,7 @@ namespace XMixDrixUpsideDown
             return v_Cell;
         }
 
-        public static void PrintTable(eSigns[,] i_GameTable, int i_TableSize)
+        internal static void PrintTable(eSigns[,] i_GameTable, int i_TableSize)
         {
             Console.Write("  ");
             for (int i = 1; i <= i_TableSize; i++) 
@@ -141,7 +141,7 @@ namespace XMixDrixUpsideDown
             Console.WriteLine(i_Name + " is the winner!");
         }
 
-        public static void PrintScoreBoard(User i_User1, User i_User2)
+        internal static void PrintScoreBoard(User i_User1, User i_User2)
         {
             Console.WriteLine("Score Board:");
             Console.WriteLine(i_User1.Name + " score is " + i_User1.Score);

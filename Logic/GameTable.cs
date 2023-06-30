@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace XMixDrixUpsideDown
+namespace Logic
 {
-    public enum eSigns
+    internal enum eSigns
     {
         Empty,
         X,
@@ -33,7 +33,7 @@ namespace XMixDrixUpsideDown
             }
         }
 
-        public eSigns[,] Table
+        internal eSigns[,] Table
         {
             get
             {
@@ -41,7 +41,7 @@ namespace XMixDrixUpsideDown
             }
         }
 
-        public bool CheckIfLoose(int i_Row, int i_Col)
+        internal bool CheckIfLoose(int i_Row, int i_Col)
         {
             bool v_IsLoose = false;
             if (m_RowsDetails[i_Row].IsOneSignInLine && m_RowsDetails[i_Row].CountSign == m_SizeOfTable)
@@ -63,17 +63,17 @@ namespace XMixDrixUpsideDown
             return v_IsLoose;
         }
 
-        public bool CheckIfTie()
+        internal bool CheckIfTie()
         {
             return m_Capacity == m_SizeOfTable * m_SizeOfTable;
         }
 
-        public bool IsAvailableCell(int i_Row, int i_Col)
+        internal bool IsAvailableCell(int i_Row, int i_Col)
         {
             return m_Table[i_Row, i_Col] == eSigns.Empty;            
         }
 
-        public void InsertNewSign(eSigns i_NewSign, int i_Row, int i_Col)
+        internal void InsertNewSign(eSigns i_NewSign, int i_Row, int i_Col)
         {
             m_Table[i_Row, i_Col] = i_NewSign;
             updateLinesDetails(i_NewSign, i_Row, i_Col);
@@ -104,7 +104,7 @@ namespace XMixDrixUpsideDown
             return i_Row + i_Col == m_SizeOfTable - 1;
         }
 
-        public void RestartInformationInTable()
+        internal void RestartInformationInTable()
         {
             m_Table = new eSigns[m_SizeOfTable, m_SizeOfTable];
             m_Capacity = 0;
@@ -123,7 +123,7 @@ namespace XMixDrixUpsideDown
             }
         }
 
-        public Tuple<int, int> ChooseRandomCellForComputerUser()
+        internal Tuple<int, int> ChooseRandomCellForComputerUser()
         {
             List<Tuple<int, int>> v_AvailableCells = new List<Tuple<int, int>>();
             Random v_Rand = new Random();

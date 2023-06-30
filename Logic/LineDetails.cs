@@ -1,31 +1,19 @@
-﻿namespace XMixDrixUpsideDown
+﻿namespace Logic
 {
-    public class LineDetails
+    internal class LineDetails
     {
         private eSigns m_Sign;
         private bool m_IsOneSignInLine;
         private int m_CountSign;
 
-        public LineDetails()
+        internal LineDetails()
         {
             m_Sign = eSigns.Empty;
             m_IsOneSignInLine = true;
             m_CountSign = 0;
         }
 
-        public eSigns Sign 
-        { 
-            get
-            {
-                return m_Sign;
-            }
-            set
-            {
-                m_Sign = value;
-            }
-        }
-
-        public bool IsOneSignInLine
+        internal bool IsOneSignInLine
         {
             get
             {
@@ -33,7 +21,7 @@
             }
         }
 
-        public int CountSign
+        internal int CountSign
         {
             get
             {
@@ -41,7 +29,7 @@
             }
         }
 
-        public void UpdateLineDetails(eSigns i_NewSign)
+        internal void UpdateLineDetails(eSigns i_NewSign)
         {
             if(!m_IsOneSignInLine)
             {

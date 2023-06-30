@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{54BD1FFA-7787-4237-848D-B64F006879EC}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>XMixDrixUpsideDown</RootNamespace>
     <AssemblyName>XMixDrixUpsideDown</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -50,31 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
-    <Compile Include="GameSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameSettingsForm.Designer.cs">
-      <DependentUpon>GameSettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GameTable.cs" />
     <Compile Include="LineDetails.cs" />
-    <Compile Include="TicTacToeMisereForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TicTacToeMisereForm.Designer.cs">
-      <DependentUpon>TicTacToeMisereForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="User.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GameSettingsForm.resx">
-      <DependentUpon>GameSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TicTacToeMisereForm.resx">
-      <DependentUpon>TicTacToeMisereForm.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace XMixDrixUpsideDown
+namespace Logic
 {
     public class Game
     {

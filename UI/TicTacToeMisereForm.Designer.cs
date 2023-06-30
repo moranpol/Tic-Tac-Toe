@@ -1,4 +1,4 @@
-﻿namespace XMixDrixUpsideDown
+﻿namespace UI
 {
     partial class TicTacToeMisereForm
     {
