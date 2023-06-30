@@ -31,11 +31,6 @@ namespace Logic
         {
             bool v_ContinueGame = true;
 
-            //CreateUser(0, false);
-            //m_Table.SizeOfTable = UI.GetTableSize();
-            //m_Table.RestartInformationInTable();
-            //(1, UI.IsUser2Computer());
-
             while(v_ContinueGame)
             {
                 gameRound();
