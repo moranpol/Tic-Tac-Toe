@@ -62,6 +62,7 @@
             this.Controls.Add(this.labelPlayer2);
             this.Controls.Add(this.labelPlayer1);
             this.Name = "TicTacToeMisereForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicTacToeMisereForm";
             this.ResumeLayout(false);
             this.PerformLayout();
