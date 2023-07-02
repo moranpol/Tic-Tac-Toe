@@ -65,7 +65,6 @@ namespace UI
         {
             Button v_Button = sender as Button;
             Tuple<int, int> v_ChosenCell;
-            eGameStatus v_CurrentGameStatus;
 
             v_Button.Enabled = false;
             if(m_Game.PlayerTurn == ePlayerTurn.PlayerO)
