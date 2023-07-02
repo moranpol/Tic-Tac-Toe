@@ -24,7 +24,7 @@ namespace UI
 
             if(textBoxPlayer2.Text.Length == 0)
             {
-                textBoxPlayer1.Text = "Player 2";
+                textBoxPlayer2.Text = "Player 2";
             }
             else if (!checkBoxPlayer2.Checked)
             {

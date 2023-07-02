@@ -18,7 +18,7 @@
             }
         }
 
-        internal bool IsComputer
+        public bool IsComputer
         {
             get
             {

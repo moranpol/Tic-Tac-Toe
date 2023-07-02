@@ -123,7 +123,7 @@ namespace Logic
             }
         }
 
-        internal Tuple<int, int> ChooseRandomCellForComputerUser()
+        public Tuple<int, int> ChooseRandomCellForComputerUser()
         {
             List<Tuple<int, int>> v_AvailableCells = new List<Tuple<int, int>>();
             Random v_Rand = new Random();

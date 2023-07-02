@@ -3,21 +3,35 @@ using System.Runtime.CompilerServices;
 
 namespace Logic
 {
+    public enum ePlayerTurn
+    {
+        PlayerO, PlayerX
+    }
+
+    public enum eGameStatus
+    {
+        Tie, Win, Continue
+    }
+
     public class Game
     {
         private const int v_NumOfUsers = 2;
 
         private User[] m_Users;
         private GameTable m_Table;
+        private ePlayerTurn m_PlayerTurn;
 
         public GameTable Table { get { return m_Table; } }
 
         public User[] Users { get { return m_Users; } }
 
+        public ePlayerTurn PlayerTurn { get { return m_PlayerTurn; } set { m_PlayerTurn = value; } }
+
         public Game() 
         {
             m_Users = new User[v_NumOfUsers];
             m_Table = new GameTable();
+            m_PlayerTurn = ePlayerTurn.PlayerO;
         }
 
         public void CreateUser(int i_UserNum, bool i_IsComputer, string i_UserName)
@@ -27,78 +41,43 @@ namespace Logic
             m_Users[i_UserNum].IsComputer = i_IsComputer;
         }
 
-        public void ManageGame()
+        public eGameStatus GameRound(Tuple<int, int> i_ChosenCell)
         {
-            bool v_ContinueGame = true;
+            eGameStatus v_GameStatus = eGameStatus.Continue;
 
-            while(v_ContinueGame)
+            m_Table.InsertNewSign(returnUserSign(m_PlayerTurn), i_ChosenCell.Item1, i_ChosenCell.Item2);
+            if (m_Table.CheckIfLoose(i_ChosenCell.Item1, i_ChosenCell.Item2))
             {
-                gameRound();
-                UI.PrintScoreBoard(m_Users[0], m_Users[1]);
-                v_ContinueGame = UI.CheckIfStartNewGame();
-                Ex02.ConsoleUtils.Screen.Clear();
-                m_Table.RestartInformationInTable();
+                m_Users[returnNextUserIndex()].UpdateScore();
+                v_GameStatus = eGameStatus.Win;
             }
+            else if(m_Table.CheckIfTie())
+            {
+                v_GameStatus = eGameStatus.Tie;
+            }
+
+            m_PlayerTurn = returnNextUserTurn();
+
+            return v_GameStatus;
         }
 
-        private void gameRound()
+        public int ReturnCurrentUserIndex()
         {
             int v_UserIndex = 0;
-            Tuple<int, int> v_ChosenCell;
-            bool v_ContinueGameRound = true;
-            UI.PrintTable(m_Table.Table, m_Table.SizeOfTable);
 
-            while (v_ContinueGameRound)
+            if (m_PlayerTurn == ePlayerTurn.PlayerX)
             {
-                v_ChosenCell = null;
-                if(m_Users[v_UserIndex].IsComputer)
-                {
-                    v_ChosenCell = m_Table.ChooseRandomCellForComputerUser();
-                }
-                else
-                {
-                    v_ChosenCell = UI.GetCellFromUser(m_Users[v_UserIndex].Name, m_Table.SizeOfTable);
-                    while (v_ChosenCell != null && !m_Table.IsAvailableCell(v_ChosenCell.Item1 - 1, v_ChosenCell.Item2 - 1))
-                    {
-                        UI.PrintNotAvailableCell();
-                        v_ChosenCell = UI.GetCellFromUser(m_Users[v_UserIndex].Name, m_Table.SizeOfTable);
-                    }
-                }
-
-                if(v_ChosenCell == null) 
-                {
-                    m_Users[returnNextUserIndex(v_UserIndex)].UpdateScore();
-                    break;
-                }
-                else if(!m_Users[v_UserIndex].IsComputer)
-                {
-                    v_ChosenCell = new Tuple<int, int>(v_ChosenCell.Item1 - 1, v_ChosenCell.Item2 - 1);
-                }
-
-                m_Table.InsertNewSign(returnUserSign(v_UserIndex), v_ChosenCell.Item1, v_ChosenCell.Item2);
-                Ex02.ConsoleUtils.Screen.Clear();
-                UI.PrintTable(m_Table.Table, m_Table.SizeOfTable);
-
-                if (m_Table.CheckIfLoose(v_ChosenCell.Item1, v_ChosenCell.Item2))
-                {
-                    UI.PrintWinner(m_Users[returnNextUserIndex(v_UserIndex)].Name);
-                    m_Users[returnNextUserIndex(v_UserIndex)].UpdateScore();
-                    v_ContinueGameRound = false;
-                }
-                else if(m_Table.CheckIfTie())
-                {
-                    UI.PrintTie();
-                    v_ContinueGameRound = false;
-                }
-
-                v_UserIndex = returnNextUserIndex(v_UserIndex);
+                v_UserIndex = 1;
             }
+
+            return v_UserIndex;
         }
 
-        private eSigns returnUserSign(int i_UserIndex)
+        private eSigns returnUserSign(ePlayerTurn i_PlayerTurn)
         {
             eSigns v_ResSign = eSigns.O;
-            if(i_UserIndex == 0)
+
+            if(i_PlayerTurn == ePlayerTurn.PlayerX)
             {
                 v_ResSign = eSigns.X;
             }
@@ -106,9 +85,28 @@ namespace Logic
             return v_ResSign;
         }
 
-        private int returnNextUserIndex(int i_CurrUserIndex)
+        private int returnNextUserIndex()
         {
-            return (i_CurrUserIndex + 1) % v_NumOfUsers;
+            int v_NextPlayer = 0;
+
+            if (m_PlayerTurn == ePlayerTurn.PlayerO)
+            {
+                v_NextPlayer = 1;
+            }
+
+            return v_NextPlayer;
+        }
+
+        private ePlayerTurn returnNextUserTurn()
+        {
+            ePlayerTurn v_NextPlayer = ePlayerTurn.PlayerO;
+
+            if (m_PlayerTurn == ePlayerTurn.PlayerO)
+            {
+                v_NextPlayer = ePlayerTurn.PlayerX;
+            }
+
+            return v_NextPlayer;
         }
     }
 }
