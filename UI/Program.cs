@@ -10,12 +10,10 @@ namespace UI
             Game v_Start = new Game();
 
             GameSettingsForm v_GameSettingsForm = new GameSettingsForm(v_Start);
-            Application.Run(v_GameSettingsForm);
-            //v_GameSettingsForm.Show();
+            v_GameSettingsForm.ShowDialog();
 
             TicTacToeMisereForm v_TicTacToeMisereForm = new TicTacToeMisereForm(v_Start);
-            Application.Run(v_TicTacToeMisereForm);
-            v_TicTacToeMisereForm.Show();
+            v_TicTacToeMisereForm.ShowDialog();
         }
     }
 }
