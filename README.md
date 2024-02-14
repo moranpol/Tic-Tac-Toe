@@ -10,3 +10,8 @@ This project introduces a unique variation of the classic Tic-Tac-Toe game, wher
 ## Phases:
 * Console-Based Implementation: Initially, the project started with a command-line interface version of the game, offering a simple and straightforward gameplay experience.
 * Desktop Application: Later in the project's development, a desktop application version with a graphical user interface (GUI) was introduced. This version enhances the user experience with visual elements and interactivity.
+
+## Gameplay
+1. Select the desired board size at the start of the game.
+2. Players take turns placing their marks (X or O) on the board.
+3. The game continues until a diagonal row or column is formed, leading to a loss for the player who made the last move.
