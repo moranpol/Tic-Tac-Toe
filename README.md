@@ -15,3 +15,10 @@ This project introduces a unique variation of the classic Tic-Tac-Toe game, wher
 1. Select the desired board size at the start of the game.
 2. Players take turns placing their marks (X or O) on the board.
 3. The game continues until a diagonal row or column is formed, leading to a loss for the player who made the last move.
+
+## Installation
+To install the Facebook app, follow these steps:
+1. Clone the repository from GitHub.
+2. Open the solution file in Visual Studio.
+3. Install the required packages.
+4. Build the solution and run the app.
