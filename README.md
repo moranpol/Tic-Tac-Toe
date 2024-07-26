@@ -1,6 +1,6 @@
-# X Mix Drix
+# Tic Tac Toe
 ## About:
-X Mix Drix is a project developed as part of a second-year C# course, focusing on object-oriented programming (OOP) principles and design concepts. 
+Tic Tac Toe is a project developed as part of a second-year C# course, focusing on object-oriented programming (OOP) principles and design concepts. 
 This project introduces a unique variation of the classic Tic-Tac-Toe game, where losing occurs when a diagonal row or column is formed.
 
 ## Features
